@@ -52,6 +52,13 @@ map('n', '<C-u>', '<C-u>zz', { desc = 'Page up and center' })
 map('n', 'n', 'nzz', { desc = 'Search next and center' })
 map('n', 'N', 'Nzz', { desc = 'Search previous and center' })
 
+-- Yank to system clipboard
+map('n', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
+map('n', '<leader>Y', '"+Y', { desc = 'Yank line to system clipboard' })
+
+-- Paste from system clipboard
+map('n', '<leader>p', '"+p', { desc = 'Paste from system clipboard (after)' })
+map('n', '<leader>P', '"+P', { desc = 'Paste from system clipboard (before)' })
 ---------------------
 -- VISUAL MODE
 ---------------------
@@ -66,3 +73,28 @@ map('v', '>', '>gv', { desc = 'Indent right' })
 -- Paste over selection without yanking it
 map('v', 'p', '"_dP', { desc = 'Paste over selection' })
 map('n', '<F5>', ':w | !python %<CR>', { silent = false, desc = 'Save and run Python' })
+
+-- Yank selection to system clipboard
+map('v', '<leader>y', '"+y', { desc = 'Yank selection to clipboard' })
+
+-- Paste from system clipboard over selection
+map('v', '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
+
+
+---------------------
+-- LSP MAPPINGS (Normal Mode)
+---------------------
+-- View documentation/args for function under cursor
+map('n', 'K', vim.lsp.buf.hover, { desc = 'LSP: Show documentation/args' })
+
+-- Jump to definition
+map('n', 'gd', vim.lsp.buf.definition, { desc = 'LSP: Go to definition' })
+
+-- Show code actions (fixing errors)
+map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP: Code actions' })
+
+---------------------
+-- LSP MAPPINGS (Insert Mode)
+---------------------
+-- Show arguments while you are typing inside brackets
+map('i', '<C-k>', vim.lsp.buf.signature_help, { desc = 'LSP: Show signature help' })

@@ -22,3 +22,28 @@ vim.opt.smartcase = true   -- Override ignorecase if search pattern contains upp
 
 -- Font setting for GUI clients
 vim.o.guifont = "FiraCode Nerd Font:h11"
+
+
+-- -----------------------------------------------------------------------------
+-- CLIPBOARD CONFIGURATION (Local & Remote/OSC 52)
+-- -----------------------------------------------------------------------------
+
+-- Only use OSC 52 if we are over SSH
+if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    },
+  }
+else
+  -- On local machine, 'unnamedplus' uses the system clipboard for all yanks
+  -- If you prefer using <leader>y for the clipboard (as we set in keymaps.lua),
+  -- you can leave this line commented out.
+  -- vim.opt.clipboard = 'unnamedplus'
+end
