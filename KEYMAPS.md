@@ -124,6 +124,40 @@ Leader key: `Space`
 | --- | --- | --- |
 | `<leader>gg` | Open LazyGit | lazygit.lua |
 
+### Telekasten (Zettelkasten Notes)
+
+| Key | Description | Source |
+| --- | --- | --- |
+| `<leader>tkp` | Open Telekasten panel | telekasten.lua |
+| `<leader>tkf` | Find notes | telekasten.lua |
+| `<leader>tkg` | Grep/search notes | telekasten.lua |
+| `<leader>tkn` | New note | telekasten.lua |
+| `<leader>tkd` | Daily note | telekasten.lua |
+| `<leader>tkw` | Weekly note | telekasten.lua |
+| `<leader>tkt` | New templated note | telekasten.lua |
+| `<leader>tki` | Insert link | telekasten.lua |
+| `<leader>tkb` | Show backlinks | telekasten.lua |
+| `<leader>tkl` | Follow link | telekasten.lua |
+| `<leader>tk#` | Show tags | telekasten.lua |
+| `<leader>tkr` | Rename note | telekasten.lua |
+| `<leader>tky` | Yank notelink | telekasten.lua |
+| `[[` (insert) | Insert link | telekasten.lua |
+
+### Neorg (Structured Notes)
+
+| Key | Description | Source |
+| --- | --- | --- |
+| `<leader>nrw` | Switch workspace | neorg.lua |
+| `<leader>nrn` | Notes workspace | neorg.lua |
+| `<leader>nrp` | Personal workspace | neorg.lua |
+| `<leader>nrj` | Journal today | neorg.lua |
+| `<leader>nry` | Journal yesterday | neorg.lua |
+| `<leader>nrt` | Journal tomorrow | neorg.lua |
+| `<leader>nri` | Open index | neorg.lua |
+| `<leader>nrc` | Table of contents | neorg.lua |
+| `<leader>nrr` | Return to previous location | neorg.lua |
+| `<leader>o` | Neorg leader (built-in commands) | neorg.lua |
+
 ## Visual Mode
 
 | Key | Description | Source |
