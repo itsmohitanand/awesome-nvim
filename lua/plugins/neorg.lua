@@ -17,9 +17,9 @@ return {
         ['core.dirman'] = {
           config = {
             workspaces = {
-              notes = '~/neorg',
-              work = '~/neorg/work',
-              personal = '~/neorg/personal',
+              notes = '~/.notes/neorg',
+              home = '~/.notes/neorg/home',
+              office = '~/.notes/neorg/office',
             },
             default_workspace = 'notes',
           },
@@ -44,6 +44,32 @@ return {
         ['core.summary'] = {},
         ['core.export'] = {},
         ['core.export.markdown'] = {},
+        -- Metadata and timestamps
+        ['core.esupports.metagen'] = {
+          config = {
+            type = 'auto',
+            update_date = true,
+          },
+        },
+        -- Improved indent support
+        ['core.esupports.indent'] = {
+          config = {
+            tweaks = {
+              unordered_list1 = 2,
+              unordered_list2 = 2,
+            },
+          },
+        },
+        -- Presenter mode (for presentations)
+        ['core.presenter'] = {
+          config = {
+            zen_mode = 'zen-mode',
+          },
+        },
+        -- UI Calendar
+        ['core.ui.calendar'] = {},
+        -- Better link management
+        ['core.esupports.hop'] = {},
       },
     })
 
@@ -53,7 +79,8 @@ return {
     -- Workspace navigation
     map('n', '<leader>nrw', '<cmd>Neorg workspace<CR>', { desc = '[N]eo[r]g [W]orkspace' })
     map('n', '<leader>nrn', '<cmd>Neorg workspace notes<CR>', { desc = '[N]eo[r]g workspace [N]otes' })
-    map('n', '<leader>nrp', '<cmd>Neorg workspace personal<CR>', { desc = '[N]eo[r]g workspace [P]ersonal' })
+    map('n', '<leader>nrh', '<cmd>Neorg workspace home<CR>', { desc = '[N]eo[r]g workspace [H]ome' })
+    map('n', '<leader>nro', '<cmd>Neorg workspace office<CR>', { desc = '[N]eo[r]g workspace [O]ffice' })
 
     -- Journal
     map('n', '<leader>nrj', '<cmd>Neorg journal today<CR>', { desc = '[N]eo[r]g [J]ournal today' })
@@ -66,5 +93,12 @@ return {
 
     -- Return to previous location
     map('n', '<leader>nrr', '<cmd>Neorg return<CR>', { desc = '[N]eo[r]g [R]eturn' })
+
+    -- Metadata and timestamps (only work in .norg files)
+    map('i', '<M-d>', '<cmd>Neorg keybind norg core.tempus.insert-date<CR>', { desc = 'Insert date' })
+    map('i', '<M-t>', '<cmd>Neorg keybind norg core.tempus.insert-date-timestamp<CR>', { desc = 'Insert timestamp' })
+
+    -- Link management
+    map('n', '<leader>nrl', '<cmd>Neorg keybind norg core.esupports.hop.hop-link<CR>', { desc = '[N]eo[r]g hop [L]ink' })
   end,
 }
